@@ -134,8 +134,9 @@ export const userLogout = AsyncHandler(async (req, res) => {
     }
     const cookiesOption = {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: true,
+      sameSite: "none",
+      path: "/",
     };
     return res.status(200).clearCookie("access_token", cookiesOption).json({
       success: true,
